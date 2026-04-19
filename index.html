@@ -264,6 +264,9 @@
   </style>
 </head>
 <body>
+  <audio id="bgMusic" loop>
+    <source src="music.mp3" type="audio/mpeg">
+  </audio>
   <div id="page1" class="page">
     <div class="page-content">
       <div class="decoration decoration-top-left">❤</div>
@@ -271,7 +274,7 @@
       <img src="icon.png" alt="My Melody" class="melody-character">
       <h1>Happy 1st Mensive</h1>
       <div class="hearts" id="hearts1"></div>
-      <button class="btn" onclick="showPage('page2')">Continue</button>
+      <button class="btn" onclick="startMusicAndContinue()">Continue</button>
     </div>
   </div>
   <div id="page2" class="page">
@@ -410,7 +413,13 @@
         confettiContainer.appendChild(confetti);
       }
     }
-
+    
+    function startMusicAndContinue() {
+      const music = document.getElementById("bgMusic");
+      music.play();
+      showPage('page2');
+    }
+    
     // Initialize hearts on the first page
     window.onload = function() {
       createHearts('page1');
